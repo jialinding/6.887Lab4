@@ -45,7 +45,7 @@ We provide three executables:
 Then you can run `./build/benchmark_learned_index` to benchmark a lookup workload over those 50M keys using the learned index that you implemented.
 You can also run `./build/benchmark_binary_search` to benchmark the same workload using binary search instead of the learned index.
 
-You should make sure that all executables run without any error messages. `./build/benchmark_binary_search` should run without any changes, but the other two executables will not run until you finish step 2.
+You should make sure that all executables run without any error messages. `./build/benchmark_binary_search` should run without any changes, but the other two executables will not run until you finish step 3.
 
 
 ### Step 5
