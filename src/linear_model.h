@@ -18,7 +18,7 @@ class LinearModel {
   // Train the model (i.e., set values for the slope m_ and the intercept b_)
   // to predict the positions from the keys. In other words, `keys` is a vector
   // of scalar model inputs, and `positions` is the vector of the corresponding
-  // desired model outputs (e.g., for inputs `keys[0]`, the desired output is
+  // desired model outputs (e.g., for input `keys[0]`, the desired output is
   // `positions[0]`).
   void train(const std::vector<K>& keys, const std::vector<int>& positions) {
     assert(keys.size() == positions.size());
@@ -26,7 +26,7 @@ class LinearModel {
     /*** Insert your code here (roughly 25 lines of code) ***/
     // Train the model (i.e., set values for m_ and b_) to predict the
     // positions from the keys.
-    // We suggest that you use train the model using the closed-form formula
+    // We suggest that you train the model using the closed-form formula
     // for minimizing mean squared error:
     // https://en.wikipedia.org/wiki/Ordinary_least_squares#Simple_linear_regression_model
     // You may need to be careful of cases where the denominators in the above
