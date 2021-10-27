@@ -38,15 +38,21 @@ class LearnedIndex {
     std::iota(std::begin(positions), std::end(positions), 0);
     root_model_.train(keys, positions);
     // Rescale the root model so that instead of predicting a position, it
-    // predicts the index for the second-level model.
+    // predicts the index for the second-level model. Feeding a key through
+    // the root model will output the index of the second-level model to which
+    // the key should be assigned (root model outputs may need to be manually
+    // bounded between 0 and num_second_level_models-1).
     root_model_.rescale(static_cast<double>(num_second_level_models) /
                         keys.size());
 
     /*** Insert your code here (roughly 35 lines of code) ***/
-    // Use trained root model to assign records to each of the second-level
+    // Use the trained root model to assign records to each of the second-level
     // models. Then train the second-level models to predict the positions for
     // each of their assigned records and compute the maximum prediction error
-    // for each second-level model.
+    // for each second-level model. Unlike the paper, in which each model
+    // stores both a min-error (i.e., a left-error) and a max-error (i.e., a
+    // right error), here we will only store a single maximum bi-directional
+    // error for each second-level model.
   }
 
   // If the key exists, return a pointer to the corresponding value in data_.
@@ -61,6 +67,8 @@ class LearnedIndex {
     // last-mile search using the model's error bound to find the true position
     // of the key. If the key exists, return a pointer to the value. If the
     // key does not exist, return a nullptr.
+    // NOTE: to receive full credit, the last-mile search should use the
+    // `last_mile_search` method provided below.
   }
 
  private:
