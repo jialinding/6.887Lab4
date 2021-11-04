@@ -1,5 +1,7 @@
 #pragma once
 
+#include <assert.h>
+
 #include <vector>
 
 /* A simple linear regression model for predicting the location of a given key
